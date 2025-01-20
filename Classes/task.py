@@ -4,8 +4,9 @@ import json
 
 
 class Status(Enum):
-    DONE = True
-    IN_PROGRESS = False
+    DONE = 2
+    IN_PROGRESS = 1
+    NOT_DONE = 0
 
 
 class Task:
@@ -23,14 +24,23 @@ class Task:
         self.status = Status.DONE
 
     def serialize(self) -> str:
-        json_string = json.dumps(self.to_dict())
+        json_string = json.dumps(self.to_dict(), indent=4)
         return json_string
+
+    @staticmethod
+    def deserialize(json_string: str):
+        dict = json.loads(json_string)
+        task = Task(dict["id"], dict["description"])
+        task.status = dict["status"]
+        task.created_at = dict["created_at"]
+        task.updated_at = dict["updated_at"]
+        return task
 
     def to_dict(self) -> dict:
         dict = {
             "id": self.id,
             "description": self.description,
-            "status": True if self.status == Status.DONE else False,
+            "status": self.status.value,
             "created_at": self.created_at,
             "updated_at": self.updated_at
         }
