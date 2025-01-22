@@ -26,6 +26,19 @@ class Task:
         output += f'{self.updated_at:<20}| '
         return output
 
+    def get_table_styled_string(self, description_width: int, id_width=5, **kwargs) -> str:
+        status = kwargs.get('status', 13)
+        created_at = kwargs.get('created at', 20)
+        updated_at = kwargs.get('updated at', 20)
+
+        output = '|'
+        output += f' {self._description:<{description_width}} |'
+        output += f' {self._id:<{id_width}} |'
+        output += f' {self._status:<{status}} |'
+        output += f' {self.created_at:<{created_at}} |'
+        output += f' {self.updated_at:<{updated_at}} |'
+        return output
+
     @property
     def id(self):
         return self._id

@@ -57,16 +57,42 @@ class TaskManager:
             print("No tasks found.")
             return
 
-        if status != '':
-            print(f"Tasks with status \"{status}\":")
-            for task in self.tasks:
-                if task.status == status:
-                    print(task)
-        else:
-            print(f"|{'Tasks':^31}| {'ID':^3}|{'STATUS':^14}|{'CREATED AT':^21}|{'UPDATED AT':^21}|")
-            print('|'+ "-"*95 + '|')
-            for task in self.tasks:
-                print(task)
+        max_description_width = max(len(self.tasks[i].description) for i in range(len(self.tasks)))
+        max_description_width = max_description_width if max_description_width > len('tasks') else (len('tasks') + 2)
+        max_id_width = max(len(str(self.tasks[i].id)) for i in range(len(self.tasks))) + 1
+
+        header = {
+            'tasks': max_description_width,
+            'id': max_id_width,
+            'status': 11,
+            'created at': 19,
+            'updated at': 19
+        }
+
+        header_string = ''
+
+        for key, value in header.items():
+            header_string += f'| {key.upper():^{value}} '
+        header_string += '|'
+
+        dash_counter = len(header_string) - 2
+
+        # print(f"|{'Tasks':^31}| {'ID':^3}|{'STATUS':^14}|{'CREATED AT':^21}|{'UPDATED AT':^21}|")
+        print(header_string)
+        print('|' + "-" * dash_counter + '|')
+        for task in self.tasks:
+            print(task.get_table_styled_string(description_width=max_description_width,
+                                               id_width=max_id_width,
+                                               **header))
+
+        # if status != '':
+        #     print(f"Tasks with status \"{status}\":")
+        #     for task in self.tasks:
+        #         if task.status == status:
+        #             print(task)
+        # else:
+        #     for task in self.tasks:
+        #         print(task)
 
     @staticmethod
     def task_serializer(obj):
