@@ -1,7 +1,13 @@
+import os
+
 from Classes.task_manager import TaskManager
 import argparse
 
-JSON = "data.json"
+JSON = 'data.json'
+
+if not os.path.exists(JSON):
+    open(JSON, 'w').close()
+
 manager = TaskManager(JSON)
 
 
