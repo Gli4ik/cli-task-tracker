@@ -5,11 +5,11 @@ This tool allows users to add, update, delete, and list tasks with different sta
 
 ## Features
 
-Add Tasks: Create a new task with a description and an optional status.
-Update Tasks: Modify the description of an existing task.
-Delete Tasks: Remove tasks by their ID.
-List Tasks: Display all tasks or filter by specific statuses.
-Mark Tasks: Update the status of a task.
+- Add Tasks: Create a new task with a description and an optional status.
+- Update Tasks: Modify the description of an existing task.
+- Delete Tasks: Remove tasks by their ID.
+- List Tasks: Display all tasks or filter by specific statuses.
+- Mark Tasks: Update the status of a task.
 
 ## Usage
 
