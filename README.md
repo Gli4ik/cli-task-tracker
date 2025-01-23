@@ -1,7 +1,9 @@
 # Simple CLI Task Tracker
 
-A Python-based Command-Line Interface (CLI) application for managing tasks efficiently. 
+A Python-based Command-Line Interface (CLI) application for managing tasks efficiently.
 This tool allows users to add, update, delete, and list tasks with different statuses.
+
+Inspired by [this guide](https://roadmap.sh/projects/task-tracker).
 
 ## Features
 
@@ -10,6 +12,12 @@ This tool allows users to add, update, delete, and list tasks with different sta
 - Delete Tasks: Remove tasks by their ID.
 - List Tasks: Display all tasks or filter by specific statuses.
 - Mark Tasks: Update the status of a task.
+
+## Instalation
+
+1. Make sure you have Python 3.6+ installed.
+2. Clone repo to the desired directory using:
+   `git clone https://github.com/Gli4ik/cli-task-tracker`
 
 ## Usage
 
@@ -78,3 +86,19 @@ python task-tracker.py list [options]
 Example:
 
 `python task-tracker.py list --todo`
+
+## Contributing
+
+1. Fork the repository.
+
+2. Create your feature branch: git checkout -b my-new-feature.
+
+3. Commit your changes: git commit -am 'Add some feature'.
+
+4. Push to the branch: git push origin my-new-feature.
+
+5. Submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
