@@ -77,4 +77,4 @@ python task-tracker.py list [options]
 
 Example:
 
-python task-tracker.py list --todo
+`python task-tracker.py list --todo`
